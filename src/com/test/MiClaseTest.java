@@ -1,9 +1,11 @@
-package com.ejemplo;
+package com.test;
 
 import static org.junit.Assert.*;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import com.ejemplo.MiClase;
 
 public class MiClaseTest {
 
