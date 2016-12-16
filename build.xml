@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ProyectoAnt" default="main"  xmlns:ivy="antlib:org.apache.ivy.ant">
+ 
+    <target name="init">
+        <tstamp />
+        <property name="name" value="Prueba de Ant" />
+        <property name="version" value="1.0.0" />
+    </target>
+ 
+    <target name="main" depends="init, compila, empaqueta" description="Compila y empaqueta">
+        <echo message="Compilando y creando el archivo .jar" />
+    </target>
+ 
+    <target name="compila" description="Compila">
+        <javac srcdir="src/com/ejemplo" destdir="bin/com/ejemplo" />
+    </target>
+ 
+    <target name="empaqueta" depends="init" description="Empaqueta">
+        <jar jarfile="${name} v${version}.jar" basedir="bin" index="no" compress="yes">
+            <manifest>
+                <attribute name="Built-By" value="${user.name}" />
+                <attribute name="Specification-Title" value="${name}" />
+                <attribute name="Specification-Version" value="${version}" />
+                <attribute name="Main-Class" value="com.ejemplo.MiClase" />
+            </manifest>
+        </jar>
+    </target>
+	 
+		<property environment="env"/>
+		<property name="ivy.home" value="${env_IVY_HOME}"/>
+
+		<taskdef resource="org/apache/ivy/ant/antlib.xml">
+		    <classpath>
+		        <fileset dir="${ivy.home}">
+		            <include name="*.jar"/>
+		        </fileset>
+		    </classpath>
+		</taskdef> 
+ 
+</project>
