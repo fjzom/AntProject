@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="ProyectoAnt" default="main"  xmlns:ivy="antlib:org.apache.ivy.ant">
+<project name="ProyectoAnt" default="main"  >
  
     <target name="init">
         <tstamp />
@@ -25,16 +25,6 @@
             </manifest>
         </jar>
     </target>
-	 
-		<property environment="env"/>
-		<property name="ivy.home" value="${env_IVY_HOME}"/>
-
-		<taskdef resource="org/apache/ivy/ant/antlib.xml">
-		    <classpath>
-		        <fileset dir="${ivy.home}">
-		            <include name="*.jar"/>
-		        </fileset>
-		    </classpath>
-		</taskdef> 
+	  
  
 </project>
